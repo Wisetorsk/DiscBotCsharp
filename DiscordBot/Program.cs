@@ -20,48 +20,48 @@ namespace DiscordBot
     {
         #region Fields
         #region RoleIDs //REPLACE WITH NEW VALUES
-        private readonly ulong _admin = 552055706791182347; //ADMIN ROLE ID
-        private readonly ulong _startIT = 544423343978315777; // START IT ROLE ID
-        private readonly ulong _student = 552473233493065748; // STUDENT ROLE ID
-        private readonly ulong _teacher = 552616175415328780; // STUDENT ROLE ID
+        private readonly ulong _admin = 800061035398037524; //ADMIN ROLE ID
+        //private readonly ulong _startIT = 544423343978315777; // START IT ROLE ID
+        //private readonly ulong _student = 552473233493065748; // STUDENT ROLE ID
+        //private readonly ulong _teacher = 552616175415328780; // STUDENT ROLE ID
         #endregion
 
         #region text channels //REPLACE WITH NEW VALUES
 
-        private readonly ulong _general = 538289968007610379; //540248332069765134;
-        private readonly ulong _bot = 553158666350624789; //550960388376756224;
-        private readonly ulong _errors = 553158744012357657; //550982436574593044; 
-        private readonly ulong _startIT_general = 552165841261690901;
-        private readonly ulong _team1 = 552166063723249666;
-        private readonly ulong _team2 = 552166088646066189;
+        private readonly ulong _general = 694326574601994353; //540248332069765134;
+        private readonly ulong _bot = 800061983973179412; //550960388376756224;
+        private readonly ulong _errors = 800066416518365206; //550982436574593044; 
+        //private readonly ulong _startIT_general = 552165841261690901;
+        //private readonly ulong _team1 = 552166063723249666;
+        //private readonly ulong _team2 = 552166088646066189;
         #endregion
 
         #region GET_Server
 
-        public static SocketGuild GetServer;
-        public static SocketTextChannel GetServerGeneralChannel;
-        private readonly ulong _GET_server = 349263724856737792;
-        private readonly ulong _GET_general = 491966014142021633;
+        public static SocketGuild MyServer;
+        public static SocketTextChannel ServerGeneralChannel;
+        private readonly ulong _ServerID = 694326574601994350;
+        private readonly ulong _Server_general = 694326574601994353;
 
         #region startIT4
 
-        private static readonly ulong _startIT4_Category = 537930722393194504;
-        private readonly ulong _startIT4_general = 538289968007610379;
-        private readonly ulong _startIT4_general_voice = 538290021153767451;
+        private static readonly ulong _server_Category = 694326574601994351;
+        private readonly ulong _server_General = 694326574601994353;
+        //private readonly ulong _server_general_voice = 538290021153767451;
 
-        private readonly ulong _startIT4_team1 = 539895437147111425;
-        private readonly ulong _startIT4_team2 = 542680345850544128;
-        private readonly ulong _startIT4_team3 = 539895590104858635;
-        private readonly ulong _startIT4_team4 = 539895614419369994;
-        private readonly ulong _startIT4_team5 = 549911410382209035;
-        private readonly ulong _startIT4_team6 = 550637555360595988;
+        //private readonly ulong _startIT4_team1 = 539895437147111425;
+        //private readonly ulong _startIT4_team2 = 542680345850544128;
+        //private readonly ulong _startIT4_team3 = 539895590104858635;
+        //private readonly ulong _startIT4_team4 = 539895614419369994;
+        //private readonly ulong _startIT4_team5 = 549911410382209035;
+        //private readonly ulong _startIT4_team6 = 550637555360595988;
 
-        private readonly ulong _startIT4_team1_voice = 539895757289816074;
-        private readonly ulong _startIT4_team2_voice = 539896033631797248;
-        private readonly ulong _startIT4_team3_voice = 539896053231648771;
-        private readonly ulong _startIT4_team4_voice = 539896078057603074;
-        private readonly ulong _startIT4_team5_voice = 539896102787219456;
-        private readonly ulong _startIT4_team6_voice = 550613975067262977;
+        //private readonly ulong _startIT4_team1_voice = 539895757289816074;
+        //private readonly ulong _startIT4_team2_voice = 539896033631797248;
+        //private readonly ulong _startIT4_team3_voice = 539896053231648771;
+        //private readonly ulong _startIT4_team4_voice = 539896078057603074;
+        //private readonly ulong _startIT4_team5_voice = 539896102787219456;
+        //private readonly ulong _startIT4_team6_voice = 550613975067262977;
 
         public static SocketCategoryChannel StartIt4CategoryChannel;
         public static SocketTextChannel StartIt4GeneralTextChannel;
@@ -83,23 +83,17 @@ namespace DiscordBot
 
         #endregion
 
-        #region startIT5
-
-
-
-        #endregion
-        #endregion
 
         #region voice channels //REPLACE WITH NEW VALUES
-        private readonly ulong _generalVoice = 552166007767171083;
-        private readonly ulong _team1Voice = 552166126403190795;
-        private readonly ulong _team2Voice = 552166146816606229;
+        private readonly ulong _generalVoice = 694326574601994354;
+        private readonly ulong _team1Voice = 800067812948705321;
+        private readonly ulong _team2Voice = 800067839439667260;
         #endregion
 
         private static DiscordSocketClient _client;
         private CommandService _commands;
         private IServiceProvider _services;
-        public static ulong DefaultCategory = _startIT4_Category; //Set this variable according to the Category the bot shall overview
+        public static ulong DefaultCategory = _server_Category; //Set this variable according to the Category the bot shall overview
         //private Timer _timer;
         private TimerAlerts _alerts;
         //public readonly DateTime startTime 
@@ -108,7 +102,7 @@ namespace DiscordBot
         private static readonly string _userPath = @"users.txt";
         private static readonly string _daemonPath = @"crashHandler.exe";
         public static List<Question> ActiveQuestions = new List<Question>();
-        private readonly ulong _serverName = 540248332069765128;
+        private readonly ulong _serverName = 694326574601994350;
         private readonly string _botToken = File.ReadAllLines(@"..\..\..\..\token.txt")[0];
 
         #endregion
@@ -178,38 +172,38 @@ namespace DiscordBot
             ShowMessage();
 
             #region Testing Server
-            GeneralChannel = _client.GetGuild(_GET_server).GetTextChannel(_general);
-            BotChannel = _client.GetGuild(_GET_server).GetTextChannel(_bot);
-            ErrorChannel = _client.GetGuild(_GET_server).GetTextChannel(_errors);
-            StartItGeneralTextChannel = _client.GetGuild(_serverName).GetTextChannel(_startIT_general);
-            StartItGeneralVoiceChannel = _client.GetGuild(_serverName).GetVoiceChannel(_generalVoice);
+            GeneralChannel = _client.GetGuild(_ServerID).GetTextChannel(_general);
+            BotChannel = _client.GetGuild(_ServerID).GetTextChannel(_bot);
+            ErrorChannel = _client.GetGuild(_ServerID).GetTextChannel(_errors);
+            //StartItGeneralTextChannel = _client.GetGuild(_serverName).GetTextChannel(_startIT_general);
+            //StartItGeneralVoiceChannel = _client.GetGuild(_serverName).GetVoiceChannel(_generalVoice);
 
-            Team1TextChannel = _client.GetGuild(_serverName).GetTextChannel(_team1);
-            Team1VoiceChannel = _client.GetGuild(_serverName).GetVoiceChannel(_team1Voice);
-            Team2TextChannel = _client.GetGuild(_serverName).GetTextChannel(_team2);
-            Team2VoiceChannel = _client.GetGuild(_serverName).GetVoiceChannel(_team2Voice);
+            //Team1TextChannel = _client.GetGuild(_serverName).GetTextChannel(_team1);
+            //Team1VoiceChannel = _client.GetGuild(_serverName).GetVoiceChannel(_team1Voice);
+            //Team2TextChannel = _client.GetGuild(_serverName).GetTextChannel(_team2);
+            //Team2VoiceChannel = _client.GetGuild(_serverName).GetVoiceChannel(_team2Voice);
 
             Guild = _client.GetGuild(_serverName); //Server object
             #endregion
 
             #region GETserver
 
-            GetServer = _client.GetGuild(_GET_server); // GET server
-            GetServerGeneralChannel = GetServer.GetTextChannel(_GET_general); // General text channel
+            MyServer = _client.GetGuild(_ServerID); // GET server
+            ServerGeneralChannel = MyServer.GetTextChannel(_Server_general); // General text channel
 
-            StartIt4Team1TextChannel = GetServer.GetTextChannel(_startIT4_team1);
-            StartIt4Team2TextChannel = GetServer.GetTextChannel(_startIT4_team2);
-            StartIt4Team3TextChannel = GetServer.GetTextChannel(_startIT4_team3);
-            StartIt4Team4TextChannel = GetServer.GetTextChannel(_startIT4_team4);
-            StartIt4Team5TextChannel = GetServer.GetTextChannel(_startIT4_team5);
-            StartIt4Team6TextChannel = GetServer.GetTextChannel(_startIT4_team6);
+            //StartIt4Team1TextChannel = MyServer.GetTextChannel(_startIT4_team1);
+            //StartIt4Team2TextChannel = MyServer.GetTextChannel(_startIT4_team2);
+            //StartIt4Team3TextChannel = MyServer.GetTextChannel(_startIT4_team3);
+            //StartIt4Team4TextChannel = MyServer.GetTextChannel(_startIT4_team4);
+            //StartIt4Team5TextChannel = MyServer.GetTextChannel(_startIT4_team5);
+            //StartIt4Team6TextChannel = MyServer.GetTextChannel(_startIT4_team6);
 
-            StartIt4Team1VoiceChannel = GetServer.GetVoiceChannel(_startIT4_team1_voice);
-            StartIt4Team2VoiceChannel = GetServer.GetVoiceChannel(_startIT4_team2_voice);
-            StartIt4Team3VoiceChannel = GetServer.GetVoiceChannel(_startIT4_team3_voice);
-            StartIt4Team4VoiceChannel = GetServer.GetVoiceChannel(_startIT4_team4_voice);
-            StartIt4Team5VoiceChannel = GetServer.GetVoiceChannel(_startIT4_team5_voice);
-            StartIt4Team6VoiceChannel = GetServer.GetVoiceChannel(_startIT4_team6_voice);
+            //StartIt4Team1VoiceChannel = MyServer.GetVoiceChannel(_startIT4_team1_voice);
+            //StartIt4Team2VoiceChannel = MyServer.GetVoiceChannel(_startIT4_team2_voice);
+            //StartIt4Team3VoiceChannel = MyServer.GetVoiceChannel(_startIT4_team3_voice);
+            //StartIt4Team4VoiceChannel = MyServer.GetVoiceChannel(_startIT4_team4_voice);
+            //StartIt4Team5VoiceChannel = MyServer.GetVoiceChannel(_startIT4_team5_voice);
+            //StartIt4Team6VoiceChannel = MyServer.GetVoiceChannel(_startIT4_team6_voice);
 
 
             #endregion
@@ -226,6 +220,7 @@ namespace DiscordBot
         private async Task ReplyUserDmAsync(SocketMessage msg)
         {
             ShowMessage();
+            //Console.WriteLine(msg);
             var name = String.Copy(msg.Channel.Name);
             name = name.Substring(1, name.Length - 6);
             if (msg.Author.Username == name && !msg.Author.IsBot) //Message is DM
@@ -234,7 +229,7 @@ namespace DiscordBot
                 Logging($"Message recieved from: {msg.Author.Username} id: {msg.Author.Id}\nContent: {msg.Content}");
                 Console.WriteLine("Revieved DM from: " + msg.Channel.Name);
                 
-                IReadOnlyCollection<SocketRole> userRoles = Guild.GetUser(msg.Author.Id).Roles;
+                IReadOnlyCollection<SocketRole> userRoles = Guild.GetUser(msg.Author.Id).Roles; //Does a DM context even have roles????
                 //The roles "ADMIN", "TEACHER" and "STUDENT" must be EXCLUSIVE!!!
                 if (msg.Content.Split(' ')[0].ToLower().Contains("!info")) //DM message says !info
                 {
@@ -292,7 +287,7 @@ namespace DiscordBot
             //await AssignRole(GetServer.GetUser(msg.Author.Id));
             await msg.Author.SendMessageAsync($"Flott! Nå er du registrert!\n **Er dette korrekt?**" +
                                               $"\n\nFornavn: {firstName} Etternavn: {lastName}\n\n__**Hvis dette er feil," +
-                                              $" ta kontakt med {GetServer.GetUser(112955646701297664).Mention}**__");
+                                              $" ta kontakt med {MyServer.GetUser(112955646701297664).Mention}**__");
         }
 
         private static async Task ReplyInfo(SocketMessage msg)
@@ -421,7 +416,7 @@ namespace DiscordBot
                 Description = question.Content + "\n" + question.HowToRepeat
             };
             builder.AddField("Brukernavn: ",
-                    GetServer.GetUser(question.UserId).Username)
+                    MyServer.GetUser(question.UserId).Username)
                 .AddField("Spørsmål ID", question.Id)
                 .AddField("Dato", question.Time)
                 .AddField("Sett spørsmålet til løst ved å skrive:",
@@ -495,7 +490,7 @@ namespace DiscordBot
                 Logging("Message ID: " + arg1.Id + " Deleted content: \n" + arg1.Value.Content);
                 Log(new LogMessage(LogSeverity.Info, "Delete", $"Message: {arg1.Value.Id} deleted"));
             }
-            Console.WriteLine(arg1.Value.Content);
+            //Console.WriteLine(arg1.Value.Content); //Errors out, must fix
 
             return Task.CompletedTask;
         }
@@ -542,7 +537,7 @@ namespace DiscordBot
             //var user = Context.User;
             //var role = GetServer.Roles.FirstOrDefault(x => x.Name == "STUDENT"); //GET SERVER
             var role = Guild.Roles.FirstOrDefault(x => x.Name == "STUDENT"); //TESTING SERVER
-            foreach (var role2 in GetServer.Roles)
+            foreach (var role2 in MyServer.Roles)
             {
                 Console.WriteLine(role2.Name);
             }
@@ -589,10 +584,10 @@ namespace DiscordBot
         private async Task HandleCommandAsync(SocketMessage arg)
         {
             ShowMessage();
-            var message = arg as SocketUserMessage;
+            SocketUserMessage message = arg as SocketUserMessage;
             Logging(arg.ToString());
-            if (message is null || message.Author.IsBot) return;
-            if (message.Channel.Id == 553158838291791872 || message.Channel.Id == _startIT4_general)
+            if (message is null || message.Author.IsBot) return; //If the sender is a bot, ignore the message;
+            if (message.Channel.Id == _general || message.Channel.Id == _server_General)
             {
                 var argPos = 0;
                 if (message.HasStringPrefix("bot!", ref argPos) ||
@@ -663,8 +658,8 @@ namespace DiscordBot
                 .WithColor(Color.Blue)
                 .WithDescription(
                     $"Heisann! Nå er det fredag. Husk å spille inn ukens video!\n Spill inn i OBS og send til " +
-                    $"{_client.GetUser(268754579988938752).Mention}" +
-                    $"/{_client.GetUser(363256000800751616).Mention}" +
+                    $"{_client.GetUser(112955646701297664).Mention}" +
+                    $"/{_client.GetUser(112955646701297664).Mention}" +
                     $"/{_client.GetUser(112955646701297664).Mention}")
                 .WithImageUrl(@"https://i.pinimg.com/originals/a8/ed/1e/a8ed1e3a3545b69b2aeb8512b6a55917.jpg")
                 .AddField("Husk å:",
@@ -672,7 +667,7 @@ namespace DiscordBot
                     "vanskelig eller har jeg ikke fått til *ennå*! Husk at man lærer mest når man feiler!");
 
             //StartIt4GeneralTextChannel.SendMessageAsync("", false, builder.Build());
-            await _client.GetGuild(_GET_server).GetTextChannel(538290239135940612)
+            await _client.GetGuild(_ServerID).GetTextChannel(538290239135940612)
                 .SendMessageAsync("test", false, builder.Build());
             //BotChannel.SendMessageAsync("", false, builder.Build());
         }
@@ -685,7 +680,7 @@ namespace DiscordBot
             var users = "";
             result.Item2.ForEach(element => users += element.ToString() + "\n");
             await BotChannel.SendMessageAsync($"Active users: \n " + users);
-            result.Item2.ForEach(x => Console.WriteLine(GetServer.GetUser(x).Username));
+            result.Item2.ForEach(x => Console.WriteLine(MyServer.GetUser(x).Username));
             await _client.GetUser(112955646701297664).SendFileAsync(result.Item1);
         }
 
@@ -726,7 +721,9 @@ namespace DiscordBot
 
         private static void ShowMessage(string message = "In method", [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null)
         {
-
+            /*
+             Function prints to the console what method has been activated and what line in program.cs it exitsts
+             */
             if (StartDebugOn)
             {
                 var time = DateTime.Now;
@@ -811,3 +808,4 @@ namespace DiscordBot
 
 }
 
+#endregion

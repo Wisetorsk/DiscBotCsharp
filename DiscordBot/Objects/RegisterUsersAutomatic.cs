@@ -19,7 +19,7 @@ namespace DiscordBot.Objects
             var userIds = new List<ulong>();
             using (var sw = File.CreateText(_path))
             {
-                foreach (var user in Program.GetServer.Users)
+                foreach (var user in Program.MyServer.Users)
                 {
                     if (user.VoiceChannel == null || user.VoiceChannel.Category.Id != Program.DefaultCategory) continue;
                     currentUsers.Add(user);

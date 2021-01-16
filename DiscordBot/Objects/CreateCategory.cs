@@ -32,7 +32,7 @@ namespace DiscordBot.Objects
             /*
              * Pushes the category to the cannel
              */
-            var server = Program.GetServer;
+            var server = Program.MyServer;
             //server.CreateCategoryChannelAsync(_name, properties => )
         }
 

@@ -15,26 +15,8 @@ namespace DiscordBot.Modules
 
         public async Task InviteUserAsync()
         {
-            //var arguments = args.Split(' ');
-            //var inv = Context.Client.GetInviteAsync("540248332069765128");
-            var invite = await Context.Client.GetInviteAsync("CustomInv");
-            //var invites = await Context.Guild.GetInvitesAsync();
-            await ReplyAsync(invite.Url);
-            //ulong.TryParse(arguments[0], out var recipient);
-            //if (recipient.ToString().Length > 1)
-            //{
-            //    var user = Context.Client.GetUser(recipient);
-            //    await user.SendMessageAsync("PLACEHOLDER");
-            //}
-            //else
-            //{
-            //    EmbedBuilder embed = new EmbedBuilder
-            //    {
-            //        Title = "It's Dangerous to go alone!",
-            //        Description = "FUCKWITS!"
-            //    };
-            //    await ReplyAsync("", false, embed.Build());
-            //}
+            var invite = await Context.Guild.GetInvitesAsync(); //If there are ANY active invites already created, the bot will respond with the latest. 
+            await ReplyAsync(invite.Select(x => x.Url).FirstOrDefault());
         }
 }
 }
