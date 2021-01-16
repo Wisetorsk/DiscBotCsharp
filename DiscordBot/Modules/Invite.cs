@@ -15,8 +15,9 @@ namespace DiscordBot.Modules
 
         public async Task InviteUserAsync()
         {
+
             var invite = await Context.Guild.GetInvitesAsync(); //If there are ANY active invites already created, the bot will respond with the latest. 
-            await ReplyAsync(invite.Select(x => x.Url).FirstOrDefault());
+            await ReplyAsync(invite.Count() > 0 ? invite.Select(x => x.Url).FirstOrDefault() : "There are no active invites for the server, please generate one for me!");
         }
 }
 }
